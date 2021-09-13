@@ -3,15 +3,17 @@ import pyspark
 import re
 sc = pyspark.SparkContext()
 
-#we will use this function later in our filter transformation
-def is_good_line(line): try:
-    fields = line.split(’,’) if len(fields) != 9:
-               return False
-           float(fields[6])
-           float(fields[7])
-           return True
-        except:
-    return False
+
+def is_good_line(line): 
+    try:
+        fields = line.split(’,’) 
+        if len(fields) != 9:
+            return False
+        float(fields[6])
+        float(fields[7])
+        return True
+    except:
+        return False
 
 lines = sc.textFile("/data/NASDAQ")
 clean_lines = lines.filter(is_good_line)

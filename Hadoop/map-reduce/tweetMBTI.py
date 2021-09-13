@@ -1,3 +1,16 @@
+'''
+Using the dataset of tweets annotated with the personality of the author, 
+according to the Myers Briggs Type Indicator (or MBTI for short),
+compute the average length of the tweet messages from each personality type.
+
+File schema: 
+userId;;;mbtiType;;;messages
+
+
+The messages field contains the last 50 tweets the user posted 
+(with each tweet separated by ;;; (3 semicolon characters))
+'''
+
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 import statistics
